@@ -19,13 +19,14 @@ uploadForm.addEventListener('submit', (e) => {
     const formData = new FormData();
     formData.append('file', fileInput.files[0]);
 
-    fetch('/upload', {
+    fetch('http://localhost:3000/api/image-to-text', {
         method: 'POST',
         body: formData
     })
     .then(response => response.json())
     .then(data => {
-        setResultDiv(resultDiv, `${data.message}`, "alert-success");
+        console.log(data)
+        setResultDiv(resultDiv, `${data.text}`, "alert-success");
     })
     .catch(error => {
         console.error('Error:', error);
