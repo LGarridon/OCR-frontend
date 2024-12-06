@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { imageService } from '../services/imageService';
 
 export default {
   data() {
@@ -49,11 +49,7 @@ export default {
       formData.append('file', this.file);
 
       try {
-        const response = await axios.post('http://localhost:3000/api/image-to-text', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        });
+        const response = await imageService.convertImageToText(this.file);
         console.log(response)
       } catch (err) {
         console.log(err)
