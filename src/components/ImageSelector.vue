@@ -45,9 +45,6 @@ export default {
         return;
       }
 
-      const formData = new FormData();
-      formData.append('file', this.file);
-
       try {
         const response = await imageService.convertImageToText(this.file);
         console.log(response)
