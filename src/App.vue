@@ -1,14 +1,14 @@
 <template>
-  <ImageSelector />
+  <DragDropSelector />
 </template>
 
 <script>
-import ImageSelector from './components/ImageSelector.vue'
+import DragDropSelector from './components/DragDropSelector.vue'
 
 export default {
   name: 'App',
   components: {
-    ImageSelector
+    DragDropSelector
   }
 }
 </script>
