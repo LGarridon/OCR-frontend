@@ -5,6 +5,7 @@
                 <div class="drop-container rounded">
                     <div class="drop-inside rounded" @drop="drop" @dragover="dragover" @dragenter="dragenter" @dragleave="dragleave">
                         <div class="drop-text" v-if="imageUrls.length <= 0">
+                            <ImageSVG />
                             <p>
                                 {{
                                     dragging ? 'Soltar archivos aquí' : 'Arrastra y suelta la imagen'
@@ -26,11 +27,13 @@
 <script>
   // Importa el componente hijo
   import ImageItem from './ImageItem.vue';
+  import ImageSVG from './svg/ImageSVG.vue';
 
   export default {
     name: 'ParentComponent',
     components: {
       ImageItem,
+      ImageSVG
     },
     data() {
         return {
@@ -112,5 +115,9 @@
         font-weight: bold;
         font-size: 25px;
         color: white;
+    }
+    .icon {
+        width: 50px;
+        height: 50px;
     }
 </style>
