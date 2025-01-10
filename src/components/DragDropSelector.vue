@@ -14,7 +14,7 @@
                         </div>
                         <div class="container" v-if="imageUrls.length > 0">
                             <div class="row">
-                                <ImageItem :imageUrls="imageUrls" />
+                                <ImageCarrusel :imageUrls="imageUrls" />
                             </div>
                         </div>
                     </div>
@@ -26,14 +26,14 @@
   
 <script>
   // Importa el componente hijo
-  import ImageItem from './ImageItem.vue';
+  import ImageCarrusel from './ImageCarrusel.vue';
   import ImageSVG from './svg/ImageFileiconSVG.vue';
 
   export default {
-    name: 'ParentComponent',
+    name: 'DragDropSelector',
     components: {
-      ImageItem,
-      ImageSVG
+        ImageCarrusel,
+        ImageSVG
     },
     data() {
         return {
