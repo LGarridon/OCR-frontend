@@ -27,7 +27,7 @@
 <script>
   // Importa el componente hijo
   import ImageItem from './ImageItem.vue';
-  import ImageSVG from './svg/ImageSVG.vue';
+  import ImageSVG from './svg/ImageFileiconSVG.vue';
 
   export default {
     name: 'ParentComponent',
