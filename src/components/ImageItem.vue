@@ -1,68 +1,67 @@
 <template>
-    <div class="image-container">
+    <div class="image-grid">
         <img 
             v-for="(url, index) in imageUrls" 
             :key="index" 
             :src="url" 
             alt="Imagen seleccionada" 
-            class="image-preview col-2"
-        />
-        <div class="drop-circle col-2">
-            <p>
-                Arrastra y suelta la imagen
-            </p>
+            class="image-preview col-2"/>
+        <div class="drop-circle">
+            <PlusCircleIconSVG />
         </div>
     </div>
 </template>
   
 <script>
-  export default {
-    name: 'ChildComponent',
-    props: {
-        imageUrls: {
-            type: Array,
-            default: () => [],
+    import PlusCircleIconSVG from './svg/PlusCircleIconSVG.vue';
+
+    export default {
+        name: 'ChildComponent',
+        components: {
+            PlusCircleIconSVG
         },
-    },
-  };
+        props: {
+            imageUrls: {
+                type: Array,
+                default: () => [],
+            },
+        },
+    };
 </script>
   
 <style scoped>
-    .image-container {
-        text-align: center;
-        margin: 20px;
+    .image-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        justify-content: left;
     }
-    .image-preview {
-        max-width: 150px;
-        max-height: 150px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin: 15px;
-    }
-    .drop-circle {
+
+    .image-grid img {
         width: 150px;
         height: 150px;
-        background-color: rgb(224, 224, 224);
-        border-radius: 50%; /* Hace que el div sea un círculo */
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .image-grid img:hover {
+        transform: scale(1.1);
+    }
+
+    .drop-circle {
+        width: 80px;
+        height: 150px;
         display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
-        color: #555;
-        font-weight: 500;
-        cursor: pointer;
-        user-select: none;
-        margin: 20px auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s;
+        transition: transform 0.3s ease;
     }
 
     .drop-circle:hover {
-        background-color: rgb(200, 200, 200);
-    }
-
-    .drop-circle p {
-        font-size: 15px;
+        transform: scale(1.1);
+        cursor: pointer;
     }
 </style>

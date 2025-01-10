@@ -95,14 +95,13 @@
     }
     .drop-inside {
         width: 100%;
-        height: 400px;
+        min-height: 400px;
         border: 2px dashed white;
         display: flex;
         cursor: pointer;
         background: rgb(231 166 0);
     }
     .drop-text {
-        height: 100%;
         width: 100%;
         display: flex;
         flex-direction: column;
